@@ -264,6 +264,34 @@
             color: var(--primary);
         }
 
+        /* About Content */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .photo-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-profile {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .photo-profile:hover {
+            box-shadow: 0 0 60px rgba(0, 212, 255, 0.4);
+            border-color: var(--primary);
+        }
+
         /* Projects Grid */
         .projects-grid {
             display: grid;
@@ -276,23 +304,17 @@
             background: rgba(0, 212, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 15px;
-            overflow: hidden;
+            padding: 2rem;
             transition: all 0.3s;
             backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
-            padding: 2rem;
         }
 
         .project-card:hover {
             border-color: var(--primary);
             box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
             transform: translateY(-10px);
-        }
-
-        .project-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
         }
 
         .project-card h3 {
@@ -367,9 +389,6 @@
             color: var(--primary);
             font-size: 1.4rem;
             margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
         }
 
         .skill-list {
@@ -396,18 +415,15 @@
             font-weight: 600;
         }
 
-        /* Education Timeline */
-        .education-timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-
+        /* Education */
         .education-item {
             background: rgba(0, 212, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.2);
             border-radius: 15px;
             padding: 2rem;
-            margin-bottom: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
             transition: all 0.3s;
         }
 
@@ -416,30 +432,38 @@
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
-        .education-item h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
+        .education-logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
 
-        .education-item .school {
-            color: var(--white);
-            font-weight: 600;
+        .education-content h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
             margin-bottom: 0.3rem;
         }
 
-        .education-item .period {
-            color: var(--primary);
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
+        .education-content .school {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
         }
 
-        .education-item p {
+        .education-content .period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-content p {
             color: var(--text);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* Languages Section */
+        /* Languages */
         .languages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -483,6 +507,42 @@
             line-height: 1.6;
         }
 
+        /* Soft Skills Mini */
+        .soft-skills-mini {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 15px;
+            padding: 1.8rem;
+            margin-top: 2rem;
+            max-width: 400px;
+        }
+
+        .soft-skills-mini h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .soft-skills-mini ul {
+            list-style: none;
+        }
+
+        .soft-skills-mini li {
+            color: var(--text);
+            padding: 0.6rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .soft-skills-mini li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, rgba(5, 13, 26, 0.5) 0%, rgba(15, 31, 58, 0.5) 100%);
@@ -509,11 +569,6 @@
             border-color: var(--primary);
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
             transform: translateY(-5px);
-        }
-
-        .contact-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
         }
 
         .contact-card h3 {
@@ -554,10 +609,11 @@
             .section-title { font-size: 2rem; }
             .projects-grid { grid-template-columns: 1fr; }
             .skills-container { grid-template-columns: 1fr; }
+            .about-grid { grid-template-columns: 1fr; }
+            .photo-profile { width: 250px; height: 250px; }
             nav ul { display: none; }
         }
 
-        /* Scroll to top */
         .scroll-to-top {
             position: fixed;
             bottom: 2rem;
@@ -618,7 +674,7 @@
                 </div>
                 <div class="info-item">
                     <div class="label">Infrastructure Gérée</div>
-                    <div class="value">500+ Serveurs</div>
+                    <div class="value">250+ Serveurs</div>
                 </div>
                 <div class="info-item">
                     <div class="label">Projets Complétés</div>
@@ -629,6 +685,7 @@
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">Voir Mes Projets</a>
                 <a href="#contact" class="btn btn-secondary">Me Contacter</a>
+                <a href="CV Ludivin DEKPEA.pdf" class="btn btn-secondary" download>Télécharger mon CV</a>
             </div>
         </div>
     </section>
@@ -637,18 +694,25 @@
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">À Propos</h2>
-            <p style="text-align: center; max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem; line-height: 1.8;">
-                Actuellement en formation <span style="color: var(--primary); font-weight: 600;">Bachelor 3 en Administration Systèmes & Cybersécurité</span> 
-                à l'IPSSI SQY, je combine expertise en <span style="color: var(--primary); font-weight: 600;">cybersécurité opérationnelle</span>, 
-                <span style="color: var(--primary); font-weight: 600;">administration d'infrastructures</span> et 
-                <span style="color: var(--primary); font-weight: 600;">automatisation avancée</span>.
-            </p>
-            <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem; font-size: 1.1rem; line-height: 1.8;">
-                Avec 2+ ans d'alternance en cybersécurité chez <span style="color: var(--primary); font-weight: 600;">Webnet</span> 
-                et administration infrastructure chez <span style="color: var(--primary); font-weight: 600;">Qualitair & Sea</span>, 
-                j'ai maîtrisé les SIEM avancés (Wazuh, Splunk), les outils d'investigation (Cortex, TheHive), 
-                la supervision (Zabbix, Fleet) et l'automatisation (Ansible, Terraform).
-            </p>
+            <div class="about-grid">
+                <div>
+                    <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+                        Actuellement en formation <strong style="color: var(--primary);">Bachelor 3 en Administration Systèmes & Cybersécurité</strong> 
+                        à l'IPSSI SQY, je combine expertise en <strong style="color: var(--primary);">cybersécurité opérationnelle</strong>, 
+                        <strong style="color: var(--primary);">administration d'infrastructures</strong> et 
+                        <strong style="color: var(--primary);">automatisation avancée</strong>.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        Avec 2+ ans d'alternance en cybersécurité chez <strong style="color: var(--primary);">Webnet</strong> 
+                        et administration infrastructure chez <strong style="color: var(--primary);">Qualitair & Sea</strong>, 
+                        j'ai maîtrisé les SIEM avancés (Wazuh, Splunk), les outils d'investigation (Cortex, TheHive), 
+                        la supervision (Zabbix, Fleet) et l'automatisation (Ansible, Terraform).
+                    </p>
+                </div>
+                <div class="photo-container">
+                    <img src="DEKPEA1.jpg" alt="Ludivin DEKPEA" class="photo-profile">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -658,7 +722,6 @@
             <h2 class="section-title">Projets Majeurs</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-icon">🤖</div>
                     <h3>Alternance Bot</h3>
                     <p><strong>Plateforme complète de recherche d'alternances en France</strong></p>
                     <ul>
@@ -679,9 +742,8 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">📊</div>
                     <h3>Supervision Zabbix</h3>
-                    <p><strong>Centralisation de 200+ serveurs sur plateforme unique</strong></p>
+                    <p><strong>Centralisation de 250+ serveurs sur plateforme unique</strong></p>
                     <ul>
                         <li>Remplacement de 5 outils fragmentés (Nagios, Uptrends, Grafana)</li>
                         <li>Automatisation complète du déploiement via Ansible & scripts Bash</li>
@@ -699,7 +761,6 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">🔐</div>
                     <h3>Sécurisation SSH & Bastion</h3>
                     <p><strong>Authentification par clés publiques avec restriction d'accès</strong></p>
                     <ul>
@@ -718,7 +779,6 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">☁️</div>
                     <h3>Impression Centralisée Azure</h3>
                     <p><strong>Solution cloud pour gestion des imprimantes d'entreprise</strong></p>
                     <ul>
@@ -737,11 +797,10 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">🔍</div>
                     <h3>Supervision Wazuh & SIEM</h3>
                     <p><strong>Détection d'intrusions et surveillance de sécurité centralisée</strong></p>
                     <ul>
-                        <li>Déploiement et configuration du SIEM Wazuh pour 500+ serveurs</li>
+                        <li>Déploiement et configuration du SIEM Wazuh pour 250+ serveurs</li>
                         <li>Création de règles de détection custom et tuning des alertes</li>
                         <li>Investigation approfondie des incidents de sécurité</li>
                         <li>Intégration avec Splunk pour analyses avancées</li>
@@ -756,7 +815,6 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-icon">⚙️</div>
                     <h3>Audit Infrastructure</h3>
                     <p><strong>Analyse et optimisation complète d'3 environnements</strong></p>
                     <ul>
@@ -782,126 +840,68 @@
         <div class="container">
             <h2 class="section-title">Compétences</h2>
             
-            <!-- Hard Skills -->
-            <h3 style="color: var(--primary); font-size: 1.8rem; margin: 3rem 0 2rem; text-align: left;">💻 Hard Skills</h3>
             <div class="skills-container">
                 <div class="skill-category">
-                    <h3>🔒 Cybersécurité</h3>
+                    <h3>Cybersécurité & SIEM</h3>
                     <ul class="skill-list">
-                        <li>SIEM Avancé (Wazuh, Splunk)<span class="skill-level">Expert</span></li>
-                        <li>Détection d'Intrusions (IDS/IPS, Snort)<span class="skill-level">Avancé</span></li>
+                        <li>SIEM (Wazuh, Splunk)<span class="skill-level">Expert</span></li>
+                        <li>Détection d'Intrusions (Snort, IDS/IPS)<span class="skill-level">Avancé</span></li>
                         <li>Investigation (Cortex, TheHive)<span class="skill-level">Avancé</span></li>
                         <li>Firewalls & Sécurité (pfSense)<span class="skill-level">Avancé</span></li>
-                        <li>SSH & Authentification<span class="skill-level">Expert</span></li>
+                        <li>SSH & Authentification sécurisée<span class="skill-level">Expert</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>📊 Supervision & Monitoring</h3>
+                    <h3>Supervision & Monitoring</h3>
                     <ul class="skill-list">
                         <li>Zabbix<span class="skill-level">Expert</span></li>
-                        <li>Centreon<span class="skill-level">Avancé</span></li>
-                        <li>Fleet (osquery)<span class="skill-level">Avancé</span></li>
-                        <li>Grafana<span class="skill-level">Avancé</span></li>
-                        <li>Métriques & Alerting<span class="skill-level">Expert</span></li>
+                        <li>Centreon & Fleet (osquery)<span class="skill-level">Avancé</span></li>
+                        <li>Alerting & Métriques<span class="skill-level">Expert</span></li>
+                        <li>Grafana & Dashboards<span class="skill-level">Avancé</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>⚙️ Automatisation & DevOps</h3>
+                    <h3>Automatisation & DevOps</h3>
                     <ul class="skill-list">
                         <li>Ansible<span class="skill-level">Expert</span></li>
-                        <li>Terraform<span class="skill-level">Avancé</span></li>
+                        <li>Terraform<span class="skill-level">Expert</span></li>
                         <li>Bash Scripting<span class="skill-level">Expert</span></li>
-                        <li>PowerShell<span class="skill-level">Avancé</span></li>
+                        <li>PowerShell & Windows Scripting<span class="skill-level">Avancé</span></li>
                         <li>Docker & Containers<span class="skill-level">Avancé</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>☁️ Cloud & Virtualisation</h3>
+                    <h3>Infrastructure & Cloud</h3>
                     <ul class="skill-list">
-                        <li>Azure AD<span class="skill-level">Expert</span></li>
-                        <li>Azure Services<span class="skill-level">Avancé</span></li>
-                        <li>Intune<span class="skill-level">Avancé</span></li>
-                        <li>AWS<span class="skill-level">Intermédiaire</span></li>
+                        <li>Azure AD & Intune<span class="skill-level">Expert</span></li>
                         <li>VMware & Proxmox<span class="skill-level">Expert</span></li>
+                        <li>AWS (EC2, S3, IAM)<span class="skill-level">Avancé</span></li>
+                        <li>Cisco Networking & VLANs<span class="skill-level">Avancé</span></li>
+                        <li>Active Directory<span class="skill-level">Avancé</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>🖥️ Systèmes & Réseaux</h3>
+                    <h3>Systèmes & Réseaux</h3>
                     <ul class="skill-list">
                         <li>Linux (Debian, Ubuntu, CentOS)<span class="skill-level">Expert</span></li>
-                        <li>Windows Server<span class="skill-level">Expert</span></li>
-                        <li>Active Directory<span class="skill-level">Avancé</span></li>
-                        <li>Cisco Networking<span class="skill-level">Avancé</span></li>
-                        <li>VLANs & Routage<span class="skill-level">Avancé</span></li>
+                        <li>Windows Server (2016-2022)<span class="skill-level">Expert</span></li>
+                        <li>Gestion d'infrastructure à grande échelle<span class="skill-level">Expert</span></li>
+                        <li>Routage & Protocoles réseau<span class="skill-level">Avancé</span></li>
                     </ul>
                 </div>
 
                 <div class="skill-category">
-                    <h3>🗄️ Bases de Données</h3>
-                    <ul class="skill-list">
-                        <li>PostgreSQL<span class="skill-level">Avancé</span></li>
-                        <li>MySQL<span class="skill-level">Avancé</span></li>
-                        <li>Requêtes SQL<span class="skill-level">Expert</span></li>
-                        <li>Gestion des indices<span class="skill-level">Avancé</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>💻 Développement</h3>
+                    <h3>Développement & Tech</h3>
                     <ul class="skill-list">
                         <li>Node.js / Express<span class="skill-level">Avancé</span></li>
-                        <li>React<span class="skill-level">Avancé</span></li>
-                        <li>JavaScript / HTML / CSS<span class="skill-level">Expert</span></li>
-                        <li>Python<span class="skill-level">Intermédiaire</span></li>
+                        <li>React & JavaScript<span class="skill-level">Avancé</span></li>
+                        <li>HTML / CSS<span class="skill-level">Expert</span></li>
+                        <li>PostgreSQL & MySQL<span class="skill-level">Avancé</span></li>
                         <li>Git & GitHub<span class="skill-level">Expert</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Soft Skills -->
-            <h3 style="color: var(--primary); font-size: 1.8rem; margin: 4rem 0 2rem; text-align: left;">🎯 Soft Skills</h3>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Leadership & Communication</h3>
-                    <ul class="skill-list">
-                        <li>Communication technique avancée<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Collaboration inter-équipes<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Présentation & Reporting<span class="skill-level">⭐⭐⭐⭐</span></li>
-                        <li>Documentation professionnelle<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Gestion & Résilience</h3>
-                    <ul class="skill-list">
-                        <li>Gestion du stress sous pression<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Gestion des incidents critiques<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Gestion de projets complexes<span class="skill-level">⭐⭐⭐⭐</span></li>
-                        <li>Orientation solutions<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Apprentissage & Innovation</h3>
-                    <ul class="skill-list">
-                        <li>Auto-apprentissage continu<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Adaptation rapide aux nouvelles tech<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Recherche & Expérimentation<span class="skill-level">⭐⭐⭐⭐</span></li>
-                        <li>Amélioration continue<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Rigueur & Discipline</h3>
-                    <ul class="skill-list">
-                        <li>Respect des procédures de sécurité<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Gestion de la traçabilité<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Attention aux détails<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
-                        <li>Accountability & Responsabilité<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
                     </ul>
                 </div>
             </div>
@@ -912,47 +912,66 @@
     <section id="education" class="projects">
         <div class="container">
             <h2 class="section-title">Formation & Éducation</h2>
-            <div class="education-timeline">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                
                 <div class="education-item">
-                    <h3>🎓 Bachelor 3 - Administration Systèmes & Cybersécurité</h3>
-                    <p class="school">IPSSI SQY</p>
-                    <p class="period">Septembre 2025 - Septembre 2026 (En cours)</p>
-                    <p>Formation spécialisée en administration avancée, cybersécurité opérationnelle, cloud computing et gouvernance IT.</p>
+                    <img src="IPSSI-logo-300.jpg" alt="IPSSI" class="education-logo">
+                    <div class="education-content" style="flex: 1;">
+                        <h3>Master 1 & 2</h3>
+                        <div class="school">Administration Systèmes & Cybersécurité</div>
+                        <div class="period">Septembre 2026 - Septembre 2028</div>
+                        <p>Master spécialisé en cybersécurité avancée et administration d'infrastructures complexes.</p>
+                    </div>
                 </div>
 
                 <div class="education-item">
-                    <h3>🎓 BTS SIO Option SISR</h3>
-                    <p class="school">IPSSI SQY (2e année) / Ingetis (1ère année)</p>
-                    <p class="period">2024 - Obtenu Juin 2025</p>
-                    <p>Formation en administration systèmes, réseaux, support informatique et infrastructure IT.</p>
+                    <img src="IPSSI-logo-300.jpg" alt="IPSSI" class="education-logo">
+                    <div class="education-content" style="flex: 1;">
+                        <h3>Bachelor 3</h3>
+                        <div class="school">Administration Systèmes & Cybersécurité</div>
+                        <div class="period">Septembre 2025 - Septembre 2026</div>
+                        <p>Formation spécialisée en administration avancée, cybersécurité opérationnelle, cloud.</p>
+                    </div>
                 </div>
 
                 <div class="education-item">
-                    <h3>🎓 LEA - Langues Étrangères Appliquées</h3>
-                    <p class="school">Université de Lille</p>
-                    <p class="period">3 mois (2023-2024) - Non complétée</p>
-                    <p>Formation en langues appliquées, partiellement suivie avant reconversion en informatique.</p>
+                    <img src="Ingetis.jfif" alt="Ingetis" class="education-logo">
+                    <div class="education-content" style="flex: 1;">
+                        <h3>BTS SIO</h3>
+                        <div class="school">Option SISR</div>
+                        <div class="period">Obtenu Juin 2025</div>
+                        <p>Formation en administration systèmes, réseaux, support informatique et infrastructure.</p>
+                    </div>
                 </div>
 
                 <div class="education-item">
-                    <h3>🎓 HEIP - Relations Internationales & Sciences Politiques</h3>
-                    <p class="school">HEIP</p>
-                    <p class="period">2022 - 2023</p>
-                    <p>Formation en relations internationales et sciences politiques.</p>
+                    <img src="Université de LIlle.png" alt="Lille" class="education-logo">
+                    <div class="education-content" style="flex: 1;">
+                        <h3>LEA</h3>
+                        <div class="school">Langues Étrangères Appliquées</div>
+                        <div class="period">3 mois (2023-2024)</div>
+                        <p>Formation en langues appliquées, partiellement suivie avant reconversion informatique.</p>
+                    </div>
                 </div>
 
                 <div class="education-item">
-                    <h3>🎓 Licence 3 Droit Public</h3>
-                    <p class="school">Institut Universitaire d'Abidjan</p>
-                    <p class="period">2020 - 2022</p>
-                    <p>Formation juridique fondamentale en droit public.</p>
+                    <img src="HEIP.png" alt="HEIP" class="education-logo">
+                    <div class="education-content" style="flex: 1;">
+                        <h3>HEIP</h3>
+                        <div class="school">Relations Internationales & Sciences Politiques</div>
+                        <div class="period">2022 - 2023</div>
+                        <p>Formation en relations internationales et sciences politiques.</p>
+                    </div>
                 </div>
 
-                <div style="background: rgba(0, 212, 255, 0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0, 212, 255, 0.3); margin-top: 2rem;">
-                    <p style="color: var(--text); font-size: 1rem; line-height: 1.7;">
-                        <strong style="color: var(--primary);">📚 Parcours Formation Future:</strong><br>
-                        Master 1 & Master 2 - Administration Systèmes & Cybersécurité (Sept 2026 - Sept 2028)
-                    </p>
+                <div class="education-item">
+                    <img src="IUA.png" alt="IUA" class="education-logo">
+                    <div class="education-content" style="flex: 1;">
+                        <h3>Licence 3</h3>
+                        <div class="school">Droit Public</div>
+                        <div class="period">2020 - 2022</div>
+                        <p>Formation juridique fondamentale en droit public.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -964,16 +983,28 @@
             <h2 class="section-title">Langues</h2>
             <div class="languages-grid">
                 <div class="language-card">
-                    <h3>🇫🇷 Français</h3>
+                    <h3>Français</h3>
                     <div class="language-level">Bilingue</div>
                     <p class="language-detail">Langue maternelle • Communication complète • Écrits professionnels</p>
                 </div>
 
                 <div class="language-card">
-                    <h3>🇬🇧 Anglais</h3>
+                    <h3>Anglais</h3>
                     <div class="language-level">Bilingue - Technique</div>
                     <p class="language-detail">Niveau technique et professionnel avancé • Documentation IT • Communication internationale</p>
                 </div>
+            </div>
+
+            <!-- Soft Skills Mini Section -->
+            <div class="soft-skills-mini">
+                <h3>Soft Skills Essentiels</h3>
+                <ul>
+                    <li>Gestion du stress & incidents critiques</li>
+                    <li>Communication technique avancée</li>
+                    <li>Auto-apprentissage & adaptation rapide</li>
+                    <li>Documentation & rigueur professionnelle</li>
+                    <li>Orientation solutions & amélioration continue</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -989,37 +1020,39 @@
 
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="icon">📧</div>
                     <h3>Email</h3>
                     <a href="mailto:dekpeakouapeuludivin@gmail.com">dekpeakouapeuludivin@gmail.com</a>
                 </div>
 
                 <div class="contact-card">
-                    <div class="icon">📱</div>
                     <h3>Téléphone</h3>
                     <a href="tel:+33612618722">+33 6 12 61 87 22</a>
                 </div>
 
                 <div class="contact-card">
-                    <div class="icon">💼</div>
                     <h3>LinkedIn</h3>
                     <a href="https://www.linkedin.com/in/ludivin-dekpea" target="_blank">linkedin.com/in/ludivin-dekpea</a>
                 </div>
 
                 <div class="contact-card">
-                    <div class="icon">🐙</div>
                     <h3>GitHub</h3>
                     <a href="https://github.com/Ludivin-79" target="_blank">github.com/Ludivin-79</a>
                 </div>
             </div>
 
             <div class="location-info">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">📍 Localisation</h3>
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Localisation</h3>
                 <p>
                     <strong>Disponible partout en France</strong><br>
                     <span style="color: var(--primary); font-weight: 600;">Priorité: Île-de-France</span><br>
                     <span style="color: var(--text-secondary);">Paris • Hauts-de-Seine • Val-de-Marne • Val-d'Oise • Essonne • Yvelines</span>
                 </p>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="CV_Ludivin_DEKPEA.pdf" class="btn btn-primary" download style="font-size: 1.1rem; padding: 15px 40px;">
+                    Télécharger mon CV Complet
+                </a>
             </div>
         </div>
     </section>
@@ -1032,11 +1065,9 @@
         </p>
     </footer>
 
-    <!-- Scroll to Top -->
     <button class="scroll-to-top">↑</button>
 
     <script>
-        // Scroll to top button
         const scrollBtn = document.querySelector('.scroll-to-top');
         
         window.addEventListener('scroll', () => {
@@ -1051,7 +1082,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -1063,24 +1093,6 @@
                     }
                 }
             });
-        });
-
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'slideUp 0.6s ease forwards';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-card, .skill-category, .education-item, .contact-card, .language-card').forEach(el => {
-            observer.observe(el);
         });
     </script>
 </body>
