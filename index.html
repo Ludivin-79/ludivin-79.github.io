@@ -13,8 +13,8 @@
         }
 
         :root {
-            --primary: #00d4ff;
-            --secondary: #0099cc;
+            --primary: #10b981;
+            --secondary: #059669;
             --accent: #ff006e;
             --dark: #0a1628;
             --darker: #050d1a;
@@ -24,7 +24,26 @@
             --text-secondary: #a0a0a0;
         }
 
-        html { scroll-behavior: smooth; }
+        /* Hero Background Grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body > * {
+            position: relative;
+            z-index: 2;
+        }
 
         body {
             font-family: 'Outfit', sans-serif;
@@ -39,11 +58,12 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            background: rgba(10, 22, 40, 0.92);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.15);
             z-index: 1000;
             padding: 1rem 2rem;
+            box-shadow: 0 4px 30px rgba(16, 185, 129, 0.1);
         }
 
         nav .container {
@@ -123,9 +143,10 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 8s ease-in-out infinite;
+            filter: blur(60px);
         }
 
         .hero::after {
@@ -135,9 +156,10 @@
             left: 10%;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(0, 153, 204, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 10s ease-in-out infinite reverse;
+            filter: blur(60px);
         }
 
         @keyframes float {
@@ -220,38 +242,58 @@
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: left 0.5s ease;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--darker);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.6), 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-secondary {
             border: 2px solid var(--primary);
             color: var(--primary);
-            background: transparent;
+            background: rgba(16, 185, 129, 0.05);
         }
 
         .btn-secondary:hover {
-            background: rgba(0, 212, 255, 0.1);
-            transform: translateY(-3px);
+            background: rgba(16, 185, 129, 0.12);
+            border-color: var(--white);
+            color: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
         }
 
         /* Sections communes */
         .about {
             background: linear-gradient(135deg, rgba(5, 13, 26, 0.5) 0%, rgba(15, 31, 58, 0.5) 100%);
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
         }
 
         .projects { background: linear-gradient(135deg, rgba(15, 31, 58, 0.5) 0%, rgba(5, 13, 26, 0.5) 100%); }
@@ -261,7 +303,24 @@
             font-weight: 700;
             margin-bottom: 3rem;
             text-align: center;
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            letter-spacing: -1px;
+            text-shadow: 0 0 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            margin: 1.5rem auto 0;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
         }
 
         /* About Content */
@@ -282,13 +341,13 @@
             height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid rgba(0, 212, 255, 0.3);
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.2);
             transition: all 0.3s;
         }
 
         .photo-profile:hover {
-            box-shadow: 0 0 60px rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 60px rgba(16, 185, 129, 0.4);
             border-color: var(--primary);
         }
 
@@ -301,20 +360,39 @@
         }
 
         .project-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 15px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
             padding: 2rem;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .project-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
-            transform: translateY(-10px);
+            box-shadow: 0 0 50px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(16, 185, 129, 0.2);
+            transform: translateY(-12px);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card h3 {
@@ -356,12 +434,12 @@
         }
 
         .tech-tag {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(16, 185, 129, 0.1);
             color: var(--primary);
             padding: 0.4rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         /* Skills Sections */
@@ -373,16 +451,36 @@
         }
 
         .skill-category {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 15px;
-            padding: 2.2rem;
-            transition: all 0.3s;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .skill-category:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(16, 185, 129, 0.2);
+            transform: translateY(-8px);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .skill-category:hover::before {
+            opacity: 1;
         }
 
         .skill-category h3 {
@@ -398,7 +496,7 @@
         .skill-list li {
             color: var(--text);
             padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(16, 185, 129, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -407,7 +505,7 @@
         .skill-list li:last-child { border-bottom: none; }
 
         .skill-level {
-            background: rgba(0, 212, 255, 0.1);
+            background: rgba(16, 185, 129, 0.1);
             color: var(--primary);
             padding: 0.3rem 0.8rem;
             border-radius: 12px;
@@ -417,8 +515,8 @@
 
         /* Education */
         .education-item {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
             border-radius: 15px;
             padding: 2rem;
             display: flex;
@@ -429,7 +527,7 @@
 
         .education-item:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
         }
 
         .education-logo {
@@ -472,17 +570,37 @@
         }
 
         .language-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .language-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(16, 185, 129, 0.2);
+            transform: translateY(-8px);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .language-card:hover::before {
+            opacity: 1;
         }
 
         .language-card h3 {
@@ -509,8 +627,8 @@
 
         /* Soft Skills Mini */
         .soft-skills-mini {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
             border-radius: 15px;
             padding: 1.8rem;
             margin-top: 2rem;
@@ -546,7 +664,7 @@
         /* Contact Section */
         .contact {
             background: linear-gradient(135deg, rgba(5, 13, 26, 0.5) 0%, rgba(15, 31, 58, 0.5) 100%);
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
         }
 
         .contact-grid {
@@ -557,18 +675,37 @@
         }
 
         .contact-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 15px;
+            background: rgba(16, 185, 129, 0.05);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
             padding: 2.5rem;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .contact-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-            transform: translateY(-5px);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(16, 185, 129, 0.2);
+            transform: translateY(-8px);
+            background: rgba(16, 185, 129, 0.08);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
         }
 
         .contact-card h3 {
@@ -586,17 +723,49 @@
         .contact-card a:hover { color: var(--primary); }
 
         .location-info {
-            background: rgba(0, 212, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            border: 1px solid rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.05) 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            border: 2px solid rgba(16, 185, 129, 0.3);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transition: left 0.5s ease;
+            z-index: 1;
+        }
+
+        .location-info:hover {
+            border-color: rgba(16, 185, 129, 0.6);
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.25);
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(5, 150, 105, 0.08) 100%);
+        }
+
+        .location-info:hover::before {
+            left: 100%;
+        }
+
+        .location-info > * {
+            position: relative;
+            z-index: 2;
         }
 
         /* Footer */
         footer {
             background: var(--darker);
-            border-top: 1px solid rgba(0, 212, 255, 0.1);
+            border-top: 1px solid rgba(16, 185, 129, 0.1);
             padding: 2.5rem;
             text-align: center;
             color: var(--text);
@@ -631,12 +800,12 @@
             font-weight: 700;
             transition: all 0.3s;
             z-index: 999;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
         }
 
         .scroll-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
         }
 
         .scroll-to-top.show { display: flex; }
@@ -652,6 +821,7 @@
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#education">Formation</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -685,7 +855,7 @@
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">Voir Mes Projets</a>
                 <a href="#contact" class="btn btn-secondary">Me Contacter</a>
-                <a href="CV Ludivin DEKPEA.pdf" class="btn btn-secondary" download>Télécharger mon CV</a>
+                <a href="CV_Ludivin_DEKPEA.pdf" class="btn btn-secondary" download>Télécharger CV</a>
             </div>
         </div>
     </section>
@@ -697,14 +867,14 @@
             <div class="about-grid">
                 <div>
                     <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
-                        Actuellement en formation <strong style="color: var(--primary);">Bachelor 3 en Administration Systèmes & Cybersécurité</strong> 
+                        Actuellement en formation <strong style="color: var(--primary);">Bachelor 3 Administration d'infrastructures sécurisées & SecOps</strong> 
                         à l'IPSSI SQY, je combine expertise en <strong style="color: var(--primary);">cybersécurité opérationnelle</strong>, 
                         <strong style="color: var(--primary);">administration d'infrastructures</strong> et 
                         <strong style="color: var(--primary);">automatisation avancée</strong>.
                     </p>
                     <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Avec 2+ ans d'alternance en cybersécurité chez <strong style="color: var(--primary);">Webnet</strong> 
-                        et administration infrastructure chez <strong style="color: var(--primary);">Qualitair & Sea</strong>, 
+                        Avec 2+ ans d'alternance en tant qu'<strong style="color: var(--primary);">administrateur système, réseaux & SecOps</strong> 
+                        chez <strong style="color: var(--primary);">Webnet et Qualitair & Sea</strong>, 
                         j'ai maîtrisé les SIEM avancés (Wazuh, Splunk), les outils d'investigation (Cortex, TheHive), 
                         la supervision (Zabbix, Fleet) et l'automatisation (Ansible, Terraform).
                     </p>
@@ -918,7 +1088,7 @@
                     <img src="IPSSI-logo-300.jpg" alt="IPSSI" class="education-logo">
                     <div class="education-content" style="flex: 1;">
                         <h3>Master 1 & 2</h3>
-                        <div class="school">Cybersécurité & Cloud Computing</div>
+                        <div class="school">Administration Systèmes & Cybersécurité</div>
                         <div class="period">Septembre 2026 - Septembre 2028</div>
                         <p>Master spécialisé en cybersécurité avancée et administration d'infrastructures complexes.</p>
                     </div>
@@ -935,9 +1105,9 @@
                 </div>
 
                 <div class="education-item">
-                    <img src="IPSSI-logo-300.jpg" alt="IPSSI" class="education-logo">
+                    <img src="Ingetis.jfif" alt="Ingetis" class="education-logo">
                     <div class="education-content" style="flex: 1;">
-                        <h3>BTS SIO - IPSSI SQY</h3>
+                        <h3>BTS SIO</h3>
                         <div class="school">Option SISR</div>
                         <div class="period">Obtenu Juin 2025</div>
                         <p>Formation en administration systèmes, réseaux, support informatique et infrastructure.</p>
@@ -945,7 +1115,7 @@
                 </div>
 
                 <div class="education-item">
-                    <img src="Université de LIlle.png" alt="Lille" class="education-logo">
+                    <img src="Université_de_LIlle.png" alt="Lille" class="education-logo">
                     <div class="education-content" style="flex: 1;">
                         <h3>LEA</h3>
                         <div class="school">Langues Étrangères Appliquées</div>
@@ -978,7 +1148,7 @@
     </section>
 
     <!-- Languages Section -->
-    <section style="background: linear-gradient(135deg, rgba(5, 13, 26, 0.5) 0%, rgba(15, 31, 58, 0.5) 100%); border-top: 1px solid rgba(0, 212, 255, 0.1); border-bottom: 1px solid rgba(0, 212, 255, 0.1);">
+    <section style="background: linear-gradient(135deg, rgba(5, 13, 26, 0.5) 0%, rgba(15, 31, 58, 0.5) 100%); border-top: 1px solid rgba(16, 185, 129, 0.1); border-bottom: 1px solid rgba(16, 185, 129, 0.1);">
         <div class="container">
             <h2 class="section-title">Langues</h2>
             <div class="languages-grid">
@@ -995,16 +1165,55 @@
                 </div>
             </div>
 
-            <!-- Soft Skills Mini Section -->
-            <div class="soft-skills-mini">
-                <h3>Soft Skills Essentiels</h3>
-                <ul>
-                    <li>Gestion du stress & incidents critiques</li>
-                    <li>Communication technique avancée</li>
-                    <li>Auto-apprentissage & adaptation rapide</li>
-                    <li>Documentation & rigueur professionnelle</li>
-                    <li>Orientation solutions & amélioration continue</li>
-                </ul>
+            <h3 style="color: var(--primary); font-size: 1.6rem; margin-top: 3rem; margin-bottom: 2rem; text-align: left;">Compétences Humaines</h3>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Gestion du Stress</h3>
+                    <ul class="skill-list">
+                        <li>Incidents critiques<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
+                        <li>Prise de décision sous pression<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Communication</h3>
+                    <ul class="skill-list">
+                        <li>Communication technique<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
+                        <li>Collaboration inter-équipes<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Apprentissage & Rigueur</h3>
+                    <ul class="skill-list">
+                        <li>Auto-apprentissage continu<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
+                        <li>Documentation professionnelle<span class="skill-level">⭐⭐⭐⭐⭐</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" style="background: linear-gradient(135deg, rgba(5, 13, 26, 0.5) 0%, rgba(15, 31, 58, 0.5) 100%); border-top: 1px solid rgba(16, 185, 129, 0.1); padding: 100px 2rem;">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>TOEFL</h3>
+                    <div style="color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Test of English as a Foreign Language</div>
+                    <div style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Certification Anglais International</div>
+                    <div style="color: #00ff88; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem;">En cours</div>
+                    <p style="color: var(--text); font-size: 0.95rem; line-height: 1.6;">Certification reconnue internationalement démontrant la maîtrise de l'anglais académique et professionnel.</p>
+                </div>
+
+                <div class="skill-category">
+                    <h3>CEH</h3>
+                    <div style="color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Certified Ethical Hacker</div>
+                    <div style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">EC-Council Certification</div>
+                    <div style="color: #00ff88; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem;">En cours</div>
+                    <p style="color: var(--text); font-size: 0.95rem; line-height: 1.6;">Certification en cybersécurité offensive reconnaissant l'expertise en test de pénétration et sécurité éthique.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1021,7 +1230,7 @@
             <div class="contact-grid">
                 <div class="contact-card">
                     <h3>Email</h3>
-                    <a href="mailto:dekpeakouapeuludivin@gmail.com">dekpeakouapeuludivin@gmail.com</a>
+                    <a href="/cdn-cgi/l/email-protection#c6a2a3adb6a3a7ada9b3a7b6a3b3aab3a2afb0afa886a1aba7afaae8a5a9ab"><span class="__cf_email__" data-cfemail="b8dcddd3c8ddd9d3d7cdd9c8ddcdd4cddcd1ced1d6f8dfd5d9d1d496dbd7d5">[email&#160;protected]</span></a>
                 </div>
 
                 <div class="contact-card">
@@ -1067,7 +1276,7 @@
 
     <button class="scroll-to-top">↑</button>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const scrollBtn = document.querySelector('.scroll-to-top');
         
         window.addEventListener('scroll', () => {
@@ -1094,6 +1303,22 @@
                 }
             });
         });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .skill-category, .education-item, .contact-card, .language-card').forEach(el => {
+            observer.observe(el);
+        });
     </script>
-</body>
-</html>
