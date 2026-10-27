@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ludivin DEKPEA | Cybersecurity & Infrastructure Engineer</title>
+    <meta name="description" content="Ludivin DEKPEA – Administrateur d'Infrastructures Sécurisées (Titre RNCP 37680, niveau 6), en Mastère Cybersécurité & Cloud Computing à l'IPSSI, apprenti Infrastructure & Sécurité chez McDonald's France.">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -202,6 +203,45 @@
             max-width: 700px;
             margin: 0 auto 2rem;
             line-height: 1.8;
+        }
+
+        .project-featured {
+            border-color: rgba(0, 255, 136, 0.45) !important;
+            box-shadow: 0 0 24px rgba(0, 255, 136, 0.08);
+        }
+        .project-status {
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            padding: 3px 12px;
+            border-radius: 999px;
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .rncp-badge {
+            display: inline-block;
+            margin: 0 0 1.5rem;
+            padding: 8px 16px;
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            border-radius: 999px;
+            background: rgba(0, 255, 136, 0.08);
+            color: #00ff88;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .rncp-badge:hover { background: rgba(0, 255, 136, 0.16); }
+        .obtained-tag {
+            display: inline-block;
+            margin-left: 0.5rem;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: rgba(0, 255, 136, 0.12);
+            color: #00ff88;
+            font-size: 0.75rem;
+            vertical-align: middle;
         }
 
         .hero-info {
@@ -820,7 +860,7 @@
                 <li><a href="#about">À Propos</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#skills">Compétences</a></li>
-                <li><a href="#education">Formation</a></li>
+                <li><a href="#education">Titres & Diplômes</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -832,6 +872,7 @@
         <div class="hero-content">
             <h1>Ludivin DEKPEA</h1>
             <p class="subtitle">Cybersecurity Engineer & Infrastructure Specialist</p>
+            <a href="https://www.francecompetences.fr/recherche/rncp/37680/" target="_blank" rel="noopener" class="rncp-badge">✔ Titre RNCP 37680 – Administrateur d'Infrastructures Sécurisées · Niveau 6 (Bac+3) obtenu</a>
             <p class="description">
                 Spécialisé en cybersécurité opérationnelle, administration d'infrastructures complexes et automatisation. 
                 Passionné par la détection d'intrusions, les SIEM/SOC et l'infrastructure as code.
@@ -850,12 +891,16 @@
                     <div class="label">Projets Complétés</div>
                     <div class="value">10+</div>
                 </div>
+                <div class="info-item">
+                    <div class="label">Titre RNCP</div>
+                    <div class="value">Niveau 6</div>
+                </div>
             </div>
 
             <div class="cta-buttons">
                 <a href="#projects" class="btn btn-primary">Voir Mes Projets</a>
                 <a href="#contact" class="btn btn-secondary">Me Contacter</a>
-                <a href="CV_Ludivin_DEKPEA.pdf" class="btn btn-secondary" download>Télécharger CV</a>
+                <a href="CV%20Ludivin%20DEKPEA.pdf" class="btn btn-secondary" download>Télécharger CV</a>
             </div>
         </div>
     </section>
@@ -867,14 +912,15 @@
             <div class="about-grid">
                 <div>
                     <p style="margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
-                        Actuellement en formation <strong style="color: var(--primary);">Mastère 1 en Cybersécurité & Cloud Computing</strong> 
-                        à l'IPSSI SQY, je combine expertise en <strong style="color: var(--primary);">cybersécurité opérationnelle</strong>, 
+                        Titulaire du <strong style="color: var(--primary);">titre professionnel d'Administrateur d'Infrastructures Sécurisées</strong> 
+                        (RNCP 37680, niveau 6 – Bac+3), je poursuis en <strong style="color: var(--primary);">Mastère 1 Cybersécurité & Cloud Computing</strong> 
+                        à l'IPSSI SQY, en alternance chez <strong style="color: var(--primary);">McDonald's France</strong> comme apprenti Infrastructure & Sécurité. Je combine expertise en <strong style="color: var(--primary);">cybersécurité opérationnelle</strong>, 
                         <strong style="color: var(--primary);">administration d'infrastructures</strong> et 
                         <strong style="color: var(--primary);">automatisation avancée</strong>.
                     </p>
                     <p style="font-size: 1.1rem; line-height: 1.8;">
                         Avec 3 ans d'alternance en tant qu'<strong style="color: var(--primary);">administrateur système, réseaux & SecOps</strong> 
-                        chez <strong style="color: var(--primary);">Webnet, Qualitair & Sea et MacDonald's France</strong>, 
+                        chez <strong style="color: var(--primary);">Qualitair & Sea, Webnet et McDonald's France</strong>, 
                         j'ai maîtrisé les SIEM avancés (Wazuh, Splunk), les outils d'investigation (Cortex, TheHive), 
                         la supervision (Zabbix, Fleet) et l'automatisation (Ansible, Terraform).
                     </p>
@@ -891,6 +937,32 @@
         <div class="container">
             <h2 class="section-title">Projets Majeurs</h2>
             <div class="projects-grid">
+                <div class="project-card project-featured">
+                    <div class="project-status">● Projet en cours – Octobre 2026</div>
+                    <h3>SOC LAB – Homelab Cybersécurité</h3>
+                    <p><strong>SOC complet sur Proxmox VE : 9 machines, 5 VLANs, scénario d'attaque MITRE ATT&amp;CK</strong></p>
+                    <ul>
+                        <li>Segmentation en 5 VLANs derrière pfSense (point de passage unique) avec IDS/IPS Snort et DMZ applicative</li>
+                        <li>Domaine Active Directory, poste client Windows 11, application vulnérable DVWA en DMZ et poste attaquant Kali</li>
+                        <li>Déploiement industrialisé depuis un bastion Ansible : promotion AD et agents Wazuh, Zabbix et FleetDM sur Linux et Windows (WinRM)</li>
+                        <li>Détection centralisée : SIEM Wazuh (logs pfSense/Snort via syslog), supervision Zabbix, inventaire et requêtes osquery via FleetDM</li>
+                        <li>Scénario d'attaque mappé MITRE ATT&amp;CK : reconnaissance et brute-force (T1110.001) réalisés, webshell et pivot AD en cours</li>
+                        <li>Provisioning des VMs par Terraform (API Proxmox, templates cloud-init) en cours d'intégration, mémoire technique de 30+ pages</li>
+                    </ul>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Proxmox</span>
+                        <span class="tech-tag">pfSense</span>
+                        <span class="tech-tag">Snort</span>
+                        <span class="tech-tag">Wazuh</span>
+                        <span class="tech-tag">Zabbix</span>
+                        <span class="tech-tag">FleetDM</span>
+                        <span class="tech-tag">Ansible</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Active Directory</span>
+                        <span class="tech-tag">MITRE ATT&amp;CK</span>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <h3>Alternance Bot</h3>
                     <p><strong>Plateforme complète de recherche d'alternances en France</strong></p>
@@ -1081,26 +1153,26 @@
     <!-- Education Section -->
     <section id="education" class="projects">
         <div class="container">
-            <h2 class="section-title">Formation & Éducation</h2>
+            <h2 class="section-title">Titres & Diplômes</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; margin-top: 2rem;">
                 
                 <div class="education-item">
                     <img src="IPSSI-logo-300.jpg" alt="IPSSI" class="education-logo">
                     <div class="education-content" style="flex: 1;">
-                        <h3>Master 1 & 2</h3>
-                        <div class="school">Cybersécurité & Cloud Computing</div>
-                        <div class="period">Septembre 2026 - Septembre 2028</div>
-                        <p>Master spécialisé en cybersécurité avancée et administration d'infrastructures complexes.</p>
+                        <h3>Mastère 1 & 2</h3>
+                        <div class="school">Cybersécurité & Cloud Computing – IPSSI SQY</div>
+                        <div class="period">Septembre 2026 - Septembre 2028 · En cours (alternance)</div>
+                        <p>Mastère spécialisé en cybersécurité avancée, sécurité du cloud et administration d'infrastructures complexes.</p>
                     </div>
                 </div>
 
                 <div class="education-item">
                     <img src="IPSSI-logo-300.jpg" alt="IPSSI" class="education-logo">
                     <div class="education-content" style="flex: 1;">
-                        <h3>Bachelor 3</h3>
-                        <div class="school">Administration d'infrastructures sécurisées & SecOps</div>
-                        <div class="period">Septembre 2025 - Septembre 2026</div>
-                        <p>Formation spécialisée en administration avancée, cybersécurité opérationnelle, cloud.</p>
+                        <h3>Bachelor 3 – Titre AIS <span class="obtained-tag">Obtenu</span></h3>
+                        <div class="school">Administrateur d'Infrastructures Sécurisées – <a href="https://www.francecompetences.fr/recherche/rncp/37680/" target="_blank" rel="noopener" style="color: var(--primary);">RNCP 37680</a> · Niveau 6 (Bac+3)</div>
+                        <div class="period">Septembre 2025 - Septembre 2026 · Titre délivré par le Ministère du Travail</div>
+                        <p>3 blocs validés : administrer et sécuriser les infrastructures (réseaux, systèmes, virtualisation) · concevoir et mettre en production des évolutions avec supervision · participer à la gestion de la cybersécurité (analyse de risques, politique de sécurité, détection et traitement d'incidents).</p>
                     </div>
                 </div>
 
@@ -1200,6 +1272,14 @@
             <h2 class="section-title">Certifications</h2>
             <div class="skills-container">
                 <div class="skill-category">
+                    <h3>Titre AIS</h3>
+                    <div style="color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Administrateur d'Infrastructures Sécurisées</div>
+                    <div style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">RNCP 37680 · Niveau 6 · Ministère du Travail</div>
+                    <div style="color: #00ff88; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem;">✔ Obtenu – 2026</div>
+                    <p style="color: var(--text); font-size: 0.95rem; line-height: 1.6;">Titre professionnel d'État attestant la mise en œuvre, l'administration et la sécurisation d'infrastructures on-premise et cloud, la supervision et la gestion des incidents de sécurité. <a href="https://www.francecompetences.fr/recherche/rncp/37680/" target="_blank" rel="noopener" style="color: var(--primary);">Voir la fiche RNCP →</a></p>
+                </div>
+
+                <div class="skill-category">
                     <h3>TOEFL</h3>
                     <div style="color: var(--white); font-weight: 600; margin-bottom: 0.5rem; font-size: 0.95rem;">Test of English as a Foreign Language</div>
                     <div style="color: var(--primary); font-size: 0.9rem; margin-bottom: 1rem; font-weight: 600;">Certification Anglais International</div>
@@ -1230,7 +1310,7 @@
             <div class="contact-grid">
                 <div class="contact-card">
                     <h3>Email</h3>
-                    <a href="/cdn-cgi/l/email-protection#c6a2a3adb6a3a7ada9b3a7b6a3b3aab3a2afb0afa886a1aba7afaae8a5a9ab"><span class="__cf_email__" data-cfemail="b8dcddd3c8ddd9d3d7cdd9c8ddcdd4cddcd1ced1d6f8dfd5d9d1d496dbd7d5">[email&#160;protected]</span></a>
+                    <a href="mailto:dekpeakouapeuludivin@gmail.com">dekpeakouapeuludivin@gmail.com</a>
                 </div>
 
                 <div class="contact-card">
@@ -1259,7 +1339,7 @@
             </div>
 
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="CV_Ludivin_DEKPEA.pdf" class="btn btn-primary" download style="font-size: 1.1rem; padding: 15px 40px;">
+                <a href="CV%20Ludivin%20DEKPEA.pdf" class="btn btn-primary" download style="font-size: 1.1rem; padding: 15px 40px;">
                     Télécharger mon CV Complet
                 </a>
             </div>
@@ -1276,7 +1356,7 @@
 
     <button class="scroll-to-top">↑</button>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         const scrollBtn = document.querySelector('.scroll-to-top');
         
         window.addEventListener('scroll', () => {
@@ -1322,3 +1402,6 @@
             observer.observe(el);
         });
     </script>
+
+</body>
+</html>
